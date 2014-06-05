@@ -58,12 +58,20 @@ CheatSheet for Yii 1.x
 
 ```php
   $criteria = new CDbCriteria();
+  
   // Select columns example 1
   $criteria->select = array('id', 'username', 'email');
+  
   // Select columns example 2
   $criteria->select = "id, username, email";
+  
   // Where attribute equals
   $criteria->compare('age', '18');
+  
+  // to specify another where clause just add another $criteria->compare()
+  $criteria->compare('age', '18');
+  $criteria->compare('age', '24', 'OR');
+  
   $model = MyModel::model()->findAll($criteria);
 ```
 
