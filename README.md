@@ -3,8 +3,8 @@ YIICheatSheet
 
 CheatSheet for Yii 1.x
 
-Active Record
--------------
+## Active Record
+
 
 ### Insert record
 
@@ -52,4 +52,44 @@ Active Record
   
   // Example 3
   MyModel::model()->deleteByPk($key, $condition, $params);
+```
+
+### Criteria
+
+```php
+  $criteria = new CDbCriteria();
+  // Select columns example 1
+  $criteria->select = array('id', 'username', 'email');
+  // Select columns example 2
+  $criteria->select = "id, username, email";
+  // Where attribute equals
+  $criteria->compare('age', '18');
+  $model = MyModel::model()->findAll($criteria);
+```
+
+
+## Command line yiic
+
+### Migrations
+
+For migrations the best place to run yiic is from the app/protected/yiic
+
+#### Creating a migration
+
+```bash
+  php yiic migrate create create_user_table
+```
+
+##### Running the migration
+
+###### Running the migration up method
+
+```bash
+  php yiic migrate up
+```
+
+###### Running the migration down method
+
+```bash
+  php yiic migrate down
 ```
